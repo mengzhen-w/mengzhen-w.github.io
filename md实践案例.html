@@ -1,0 +1,403 @@
+<!DOCTYPE html><html><head>
+      <title>md实践案例</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\EDY\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.7.1\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B%E4%B8%80%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%BC%9Amarkdown">实践案例：一个案例学会Markdown</h2>
+
+<hr>
+<p>原版文档：</p>
+<pre data-role="codeBlock" data-info="" class="language-"><code>克劳德·艾尔伍德·香农
+
+香农：https://baike.baidu.com/item/%E5%85%8B%E5%8A%B3%E5%BE%B7%C2%B7%E8%89%BE%E5%B0%94%E4%BC%8D%E5%BE%B7%C2%B7%E9%A6%99%E5%86%9C
+
+images/xiangnong.jpg
+
+人物资料
+
+克劳德·艾尔伍德·香农(Claude Elwood Shannon，1916-2001）1916年4月30日诞生于美国密西根州的Petoskey。在Gaylord小镇长大，当时镇里只有**三千居民**。
+2001年2月24日，香农在马萨诸塞州Medford辞世，享年84岁。贝尔实验室和MIT发表的讣告都尊崇香农为信息论及数字通信时代的奠基人。
+
+人物生平
+
+香农于1916年4月30日出生于美国密歇根州的Petoskey，并且是爱迪生的远亲戚。1936年毕业于密歇根大学并获得数学和电子工程学士学位。1940年获得麻省理工学院（MIT）数学博士学位和电子工程硕士学位。1941年他加入贝尔实验室数学部，工作到1972年。1956年他成为麻省理工学院（MIT）客座教授，并于1958年成为终生教授，1978年成为名誉教授。香农博士于2001年2月26日去世，享年84岁。
+
+成就与荣誉
+
+成就
+
+熵(entropy)的概念
+
+香农理论的重要特征是熵（entropy）的概念，他证明熵与信息内容的不确定程度有等价关系。熵曾经是波尔兹曼在热力学第二定律引入的概念，我们可以把它理解为分子运动的混乱度。信息熵也有类似意义，例如在中文信息处理时，汉字的静态平均信息熵比较大，中文是9.65比特，英文是4.03比特。这表明中文的复杂程度高于英文，反映了中文词义丰富、行文简练，但处理难度也大。
+众所周知，质量、能量和信息量是三个非常重要的量。人们很早就知道用秤或者天平计量物质的质量，而热量和功的关系则是到了19世纪中叶，随着热功当量的明确和能量守恒定律的建立才逐渐清楚。能量一词就是它们的总称，而能量的计量则通过“卡、焦耳”等新单位的出现而得到解决。
+然而，关于文字、数字、图画、声音的知识已有几千年历史了。但是它们的总称是什么，它们如何统一地计量，直到19世纪末还没有被正确地提出来，更谈不上如何去解决了。
+如果计算中的对数log是以2为底的，那么计算出来的信息熵就以比特（bit）为单位。今天在计算机和通信中广泛使用的字节(Byte）、KB、MB、GB等词都是从比特演化而来。“比特”的出现标志着人类知道了如何计量信息量。香农的信息论为明确什么是信息量概念作出决定性的贡献。
+
+荣誉
+
+学院 职位 时间
+美国声频技术协会 会员 1985年
+塔夫斯大学 荣誉博士 1987年
+宾西法尼亚大学 荣誉博士 1991年
+Eduard Rhein Prize 1991年
+
+&lt;div id="data"&gt;
+    &lt;p&gt;参考资料&lt;/p&gt;
+&lt;/div&gt;
+
+参考资料
+
+SHANNON CENTENNIAL SYMPOSIUM 密歇根大学
+詹姆斯·格雷克 《信息简史》：人民邮电出版社，2013
+MIT Professor Claude Shannon dies; was founder of digital communications MIT news 2001-1-27
+熵 百度百科
+</code></pre><hr>
+<p>Markdown排版后的文档：</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown"><span class="token comment">&lt;!--一级标题：--&gt;</span>
+<span class="token title important"><span class="token punctuation">#</span> 克劳德·艾尔伍德·香农</span>
+
+<span class="token comment">&lt;!--分隔线：--&gt;</span>
+
+<span class="token hr punctuation">---</span>
+
+<span class="token comment">&lt;!--超链接：--&gt;</span>
+<span class="token url">[<span class="token content">香农</span>](<span class="token url">https://baike.baidu.com/item/%E5%85%8B%E5%8A%B3%E5%BE%B7%C2%B7%E8%89%BE%E5%B0%94%E4%BC%8D%E5%BE%B7%C2%B7%E9%A6%99%E5%86%9C</span>)</span>
+
+<span class="token comment">&lt;!--图像：--&gt;</span>
+<span class="token url"><span class="token operator">!</span>[<span class="token content">香农</span>](<span class="token url">images/xiangnong.jpg</span>)</span>
+
+<span class="token hr punctuation">---</span>
+
+<span class="token comment">&lt;!--二级标题：--&gt;</span>
+<span class="token title important"><span class="token punctuation">##</span> 人物资料</span>
+
+<span class="token comment">&lt;!--强调和转义：--&gt;</span>
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">克劳德·艾尔伍德·香农</span><span class="token punctuation">**</span></span>(Claude Elwood Shannon，1916-2001）<span class="token italic"><span class="token punctuation">*</span><span class="token content">1916年4月30日</span><span class="token punctuation">*</span></span>诞生于美国密西根州的Petoskey。在Gaylord小镇长大，当时镇里只有\*\*三千居民**。
+<span class="token comment">&lt;!--段落：--&gt;</span>
+
+2001年2月24日，香农在马萨诸塞州Medford辞世，享年84岁。贝尔实验室和MIT发表的讣告都尊崇香农为信息论及数字通信时代的奠基人。
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 人物生平</span>
+
+香农于1916年4月30日出生于美国密歇根州的Petoskey，并且是爱迪生的远亲戚。1936年毕业于密歇根大学并获得数学和电子工程学士学位。1940年获得麻省理工学院（MIT）数学博士学位和电子工程硕士学位。1941年他加入贝尔实验室数学部，工作到1972年。1956年他成为麻省理工学院（MIT）客座教授，并于1958年成为终生教授，1978年成为名誉教授。香农博士于2001年2月26日去世，享年84岁。
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 成就与荣誉</span>
+
+<span class="token comment">&lt;!--三级标题：--&gt;</span>
+<span class="token title important"><span class="token punctuation">###</span> 成就</span>
+
+<span class="token comment">&lt;!--四级标题：--&gt;</span>
+<span class="token title important"><span class="token punctuation">####</span> 熵(entropy)的概念</span>
+
+香农理论的重要特征是熵（entropy）的概念，他证明熵与信息内容的不确定程度有等价关系。熵曾经是波尔兹曼在热力学第二定律引入的概念，我们可以把它理解为分子运动的混乱度。信息熵也有类似意义，例如在中文信息处理时，汉字的静态平均信息熵比较大，中文是9.65比特，英文是4.03比特。这表明中文的复杂程度高于英文，反映了中文词义丰富、行文简练，但处理难度也大。
+
+众所周知，质量、能量和信息量是三个非常重要的量。人们很早就知道用秤或者天平计量物质的质量，而热量和功的关系则是到了19世纪中叶，随着热功当量的明确和能量守恒定律的建立才逐渐清楚。能量一词就是它们的总称，而能量的计量则通过“卡、焦耳”等新单位的出现而得到解决。
+
+然而，关于文字、数字、图画、声音的知识已有几千年历史了。但是它们的总称是什么，它们如何统一地计量，直到19世纪末还没有被正确地提出来，更谈不上如何去解决了。
+
+如果计算中的对数log是以2为底的，那么计算出来的信息熵就以比特（bit）为单位。今天在计算机和通信中广泛使用的字节(Byte）、KB、MB、GB等词都是从比特演化而来。“比特”的出现标志着人类知道了如何计量信息量。香农的信息论为明确什么是信息量概念作出决定性的贡献。
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 荣誉</span>
+
+<span class="token comment">&lt;!--表格--&gt;</span>
+<span class="token table"><span class="token table-header-row"><span class="token table-header important">学院 </span><span class="token punctuation">|</span><span class="token table-header important"> 职位 </span><span class="token punctuation">|</span><span class="token table-header important"> 时间</span>
+</span><span class="token table-line"><span class="token punctuation">----</span><span class="token punctuation">|</span><span class="token punctuation">-----</span><span class="token punctuation">|</span><span class="token punctuation">------</span>
+</span><span class="token table-data-rows"><span class="token table-data">美国声频技术协会 </span><span class="token punctuation">|</span><span class="token table-data"> 奖 </span><span class="token punctuation">|</span><span class="token table-data"> 985年</span>
+<span class="token table-data">塔夫斯大学 </span><span class="token punctuation">|</span><span class="token table-data"> 荣誉博士 </span><span class="token punctuation">|</span><span class="token table-data"> 1987年</span>
+<span class="token table-data">宾西法尼亚大学 </span><span class="token punctuation">|</span><span class="token table-data"> 荣誉博士 </span><span class="token punctuation">|</span><span class="token table-data"> 1991年</span>
+<span class="token table-data">Eduard Rhein </span><span class="token punctuation">|</span><span class="token table-data"> Prize </span><span class="token punctuation">|</span><span class="token table-data"> 1991年</span>
+</span></span>
+<span class="token comment">&lt;!--代码块：--&gt;</span>
+<span class="token code"><span class="token punctuation">```</span><span class="token code-language">html</span>
+<span class="token code-block language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>参考资料<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token punctuation">```</span></span>
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 参考资料</span>
+
+<span class="token comment">&lt;!--无序列表：--&gt;</span>
+<span class="token list punctuation">*</span> SHANNON CENTENNIAL SYMPOSIUM 密歇根大学
+<span class="token list punctuation">*</span> 詹姆斯·格雷克 《信息简史》：人民邮电出版社，2013
+    <span class="token list punctuation">*</span> MIT Professor Claude Shannon dies; was founder of digital communications MIT news 2001-1-27
+         <span class="token list punctuation">*</span> 熵 百度百科
+
+<span class="token comment">&lt;!--有序列表：--&gt;</span>
+<span class="token list punctuation">1.</span> SHANNON CENTENNIAL SYMPOSIUM 密歇根大学
+<span class="token list punctuation">1.</span> 詹姆斯·格雷克 《信息简史》：人民邮电出版社，2013
+    <span class="token list punctuation">1.</span> MIT Professor Claude Shannon dies; was founder of digital communications MIT news 2001-1-27
+        <span class="token list punctuation">1.</span> 熵 百度百科
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
